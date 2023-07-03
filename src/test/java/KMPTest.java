@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class KMPTest {
@@ -31,9 +32,49 @@ class KMPTest {
 
     @Test
     void KMPAlgorithmTest() {
+
         KMP kmp = new KMP();
+
         assertTrue(kmp.KMPAlgorithm("abcdabcda", "abcda"));
         assertFalse(kmp.KMPAlgorithm("abcdabcda", "abcdef"));
         assertTrue(kmp.KMPAlgorithm("aaaaa", "aaa"));
     }
+
+    @Test
+    public void testKMPAlgorithm_FoundAtBeginning() {
+        KMP kmp = new KMP();
+        assertTrue(kmp.KMPAlgorithm("abcdabcda", "abcd"));
+    }
+
+    @Test
+    public void testKMPAlgorithm_FoundAtEnd() {
+        KMP kmp = new KMP();
+        assertTrue(kmp.KMPAlgorithm("abcdabcda", "abcda"));
+    }
+
+    @Test
+    public void testKMPAlgorithm_FoundInMiddle() {
+        KMP kmp = new KMP();
+        assertTrue(kmp.KMPAlgorithm("abcdabcda", "dabc"));
+    }
+
+    @Test
+    public void testKMPAlgorithm_NotFound() {
+        KMP kmp = new KMP();
+        assertFalse(kmp.KMPAlgorithm("abcdabcda", "efg"));
+    }
+
+    @Test
+    public void testKMPAlgorithm_EmptyPattern() {
+        KMP kmp = new KMP();
+        assertTrue(kmp.KMPAlgorithm("abcdabcda", ""));
+    }
+
+    @Test
+    public void testKMPAlgorithm_EmptyText() {
+        KMP kmp = new KMP();
+        assertFalse(kmp.KMPAlgorithm("", "abc"));
+    }
+
+
 }

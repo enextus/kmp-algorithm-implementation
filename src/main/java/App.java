@@ -1,3 +1,4 @@
+/*
 import java.util.Scanner;
 
 public class App {
@@ -18,4 +19,16 @@ public class App {
         else System.out.println("Pattern not found in the text");
     }
 
+}
+*/
+import javax.swing.SwingUtilities;
+
+public class App {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new KMPApplication();
+            }
+        });
+    }
 }
