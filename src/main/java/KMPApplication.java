@@ -61,13 +61,11 @@ public class KMPApplication {
         resultLabel.setBounds(X_RESULT_LABEL_POSITION, Y_RESULT_LABEL_POSITION, RESULT_LABEL_WIDTH, RESULT_LABEL_HEIGHT);
         panel.add(resultLabel);
 
-        searchButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String text = textInput.getText();
-                String pattern = patternInput.getText();
-                boolean result = kmp.KMPAlgorithm(text, pattern);
-                resultLabel.setText("Match found: " + result);
-            }
+        searchButton.addActionListener(e -> {
+            String text = textInput.getText();
+            String pattern = patternInput.getText();
+            boolean result = kmp.KMPAlgorithm(text, pattern);
+            resultLabel.setText("Match found: " + result);
         });
     }
 }
