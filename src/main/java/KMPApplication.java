@@ -4,19 +4,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class KMPApplication {
-    private static final int FRAME_WIDTH = 430;
-    private static final int FRAME_HEIGHT = 160;
+    private static final int FRAME_WIDTH = 420;
+    private static final int FRAME_HEIGHT = 130;
     private static final int TEXT_FIELD_LENGTH = 10;
     private static final int X_LABEL_POSITION = 10;
     private static final int Y_TEXT_LABEL_POSITION = 10;
     private static final int Y_PATTERN_LABEL_POSITION = 40;
-    private static final int X_INPUT_POSITION = 100;
+    private static final int X_INPUT_POSITION = 120;
     private static final int Y_BUTTON_POSITION = 80;
-    private static final int BUTTON_WIDTH = 80;
+    private static final int BUTTON_WIDTH = 110;
     private static final int BUTTON_HEIGHT = 25;
-    private static final int X_RESULT_LABEL_POSITION = 100;
+    private static final int X_RESULT_LABEL_POSITION = 180;
     private static final int Y_RESULT_LABEL_POSITION = 80;
-    private static final int RESULT_LABEL_WIDTH = 300;
+    private static final int RESULT_LABEL_WIDTH = 280;
     private static final int RESULT_LABEL_HEIGHT = 25;
 
     public KMPApplication() {
