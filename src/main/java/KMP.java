@@ -18,9 +18,7 @@ public class KMP {
     }
 
     public boolean KMPAlgorithm(String text, String pattern) {
-//        if (pattern.isEmpty()) return false; // Return false if pattern is empty
         if (pattern.isEmpty()) return true; // Return true if pattern is empty
-
 
         int[] prefixArray = computePrefixArray(pattern);
         int j = 0;

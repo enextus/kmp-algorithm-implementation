@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class KMPApplication {
     private static final int FRAME_WIDTH = 430;
-    private static final int FRAME_HEIGHT = 200;
+    private static final int FRAME_HEIGHT = 160;
     private static final int TEXT_FIELD_LENGTH = 10;
     private static final int X_LABEL_POSITION = 10;
     private static final int Y_TEXT_LABEL_POSITION = 10;
