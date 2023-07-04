@@ -1,8 +1,10 @@
+package app;
+
 import javax.swing.*;
 
 public class KMPApplication {
     private static final int FRAME_WIDTH = 420;
-    private static final int FRAME_HEIGHT = 130;
+    private static final int FRAME_HEIGHT = 180;
     private static final int TEXT_FIELD_LENGTH = 10;
     private static final int X_LABEL_POSITION = 10;
     private static final int Y_TEXT_LABEL_POSITION = 10;
@@ -19,7 +21,7 @@ public class KMPApplication {
     public KMPApplication() {
         KMP kmp = new KMP();
 
-        JFrame frame = new JFrame("KMP Algorithm");
+        JFrame frame = new JFrame("app.KMP Algorithm");
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -65,4 +67,5 @@ public class KMPApplication {
             resultLabel.setText("Match found: " + result);
         });
     }
+
 }
