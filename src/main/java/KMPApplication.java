@@ -1,8 +1,5 @@
 import javax.swing.*;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class KMPApplication {
     private static final int FRAME_WIDTH = 430;
     private static final int FRAME_HEIGHT = 160;
