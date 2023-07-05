@@ -1,42 +1,54 @@
 package app;
 
 import javax.swing.*;
+
 /**
  * This class is a GUI application for the Knuth-Morris-Pratt (KMP) algorithm.
  * It creates a simple interface allowing users to enter a text and a pattern
  * to check whether the pattern exists in the text.
  */
 public class KMPApplication {
+    // The number of rows in the text area
+    private static final int TEXT_AREA_ROWS = 40;
+
+    // The factor to calculate the height of the scroll pane
+    private static final int SCROLL_PANE_HEIGHT_FACTOR = 20;
     // Dimensions of the main application window
-    private static final int FRAME_WIDTH = 420;
-    private static final int FRAME_HEIGHT = 180;
+    private static final int FRAME_WIDTH = 450;
+
+    private static final int FRAME_HEIGHT = 700;
 
     // The length of the text fields for user input
-    private static final int TEXT_FIELD_LENGTH = 10;
+    private static final int TEXT_FIELD_LENGTH = 50;
 
     // The x-position for the labels
     private static final int X_LABEL_POSITION = 10;
 
     // The y-positions for the 'text' and 'pattern' labels
-    private static final int Y_TEXT_LABEL_POSITION = 10;
-    private static final int Y_PATTERN_LABEL_POSITION = 40;
+    private static final int Y_TEXT_LABEL_POSITION = 30;
+
+    private static final int Y_PATTERN_LABEL_POSITION = 550;
 
     // The x-position for the input fields
     private static final int X_INPUT_POSITION = 120;
 
     // The y-position for the search button
-    private static final int Y_BUTTON_POSITION = 80;
+    private static final int Y_BUTTON_POSITION = 600;
+    private static final int X_BUTTON_POSITION = 120;
 
     // Dimensions for the button
-    private static final int BUTTON_WIDTH = 110;
+    private static final int BUTTON_WIDTH = 280;
+
     private static final int BUTTON_HEIGHT = 25;
 
     // The position for the result label
     private static final int X_RESULT_LABEL_POSITION = 180;
+
     private static final int Y_RESULT_LABEL_POSITION = 80;
 
     // Dimensions for the result label
     private static final int RESULT_LABEL_WIDTH = 280;
+
     private static final int RESULT_LABEL_HEIGHT = 25;
 
 
@@ -88,12 +100,19 @@ public class KMPApplication {
         // Adds the text label to the panel
         panel.add(textLabel);
 
-        // Creates a text field for the user's input text
-        JTextField textInput = new JTextField(TEXT_FIELD_LENGTH);
-        // Sets the position and size of the text input field
-        textInput.setBounds(X_INPUT_POSITION, Y_TEXT_LABEL_POSITION, RESULT_LABEL_WIDTH, BUTTON_HEIGHT);
-        // Adds the text input field to the panel
-        panel.add(textInput);
+        // Creates a text area for the user's input text
+        JTextArea textInput = new JTextArea(TEXT_AREA_ROWS, TEXT_FIELD_LENGTH);
+        // Sets line wrap to true
+        textInput.setLineWrap(true);
+
+        // Creates a scroll pane for the text area
+        JScrollPane scrollPane = new JScrollPane(textInput);
+        // Sets the position and size of the scroll pane
+        scrollPane.setBounds(X_INPUT_POSITION, Y_TEXT_LABEL_POSITION, RESULT_LABEL_WIDTH, SCROLL_PANE_HEIGHT_FACTOR * BUTTON_HEIGHT); // height is adjusted to accommodate 50 lines
+
+        // Adds the scroll pane (containing the text area) to the panel
+        panel.add(scrollPane);
+
 
         // Creates a label with instructions for the pattern input
         JLabel patternLabel = new JLabel("Enter pattern:");
@@ -112,7 +131,7 @@ public class KMPApplication {
         // Creates a search button
         JButton searchButton = new JButton("Search");
         // Sets the position and size of the search button
-        searchButton.setBounds(X_LABEL_POSITION, Y_BUTTON_POSITION, BUTTON_WIDTH, BUTTON_HEIGHT);
+        searchButton.setBounds( X_BUTTON_POSITION, Y_BUTTON_POSITION, BUTTON_WIDTH, BUTTON_HEIGHT);
         // Adds the search button to the panel
         panel.add(searchButton);
 
