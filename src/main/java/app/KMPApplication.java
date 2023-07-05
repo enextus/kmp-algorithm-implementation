@@ -9,16 +9,15 @@ import java.awt.*;
  * to check whether the pattern exists in the text.
  */
 public class KMPApplication {
+    // Dimensions of the main application window
+    private static final int FRAME_WIDTH = 450;
+    private static final int FRAME_HEIGHT = 700;
+
     // The number of rows in the text area
-    private static final int TEXT_AREA_ROWS = 40;
+    private static final int TEXT_AREA_ROWS = 20;
 
     // The factor to calculate the height of the scroll pane
     private static final int SCROLL_PANE_HEIGHT_FACTOR = 20;
-    // Dimensions of the main application window
-    private static final int FRAME_WIDTH = 450;
-
-    //
-    private static final int FRAME_HEIGHT = 700;
 
     // The length of the text fields for user input
     private static final int TEXT_FIELD_LENGTH = 50;
@@ -152,7 +151,7 @@ public class KMPApplication {
             resultLabel.setText("Match found: " + result);
 
             // If the result is true, set the result label text color to green, else set it to red
-            if(result) {
+            if (result) {
                 resultLabel.setForeground(Color.GREEN);
             } else {
                 resultLabel.setForeground(Color.RED);
