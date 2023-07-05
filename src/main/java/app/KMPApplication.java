@@ -1,6 +1,7 @@
 package app;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * This class is a GUI application for the Knuth-Morris-Pratt (KMP) algorithm.
@@ -16,6 +17,7 @@ public class KMPApplication {
     // Dimensions of the main application window
     private static final int FRAME_WIDTH = 450;
 
+    //
     private static final int FRAME_HEIGHT = 700;
 
     // The length of the text fields for user input
@@ -27,30 +29,27 @@ public class KMPApplication {
     // The y-positions for the 'text' and 'pattern' labels
     private static final int Y_TEXT_LABEL_POSITION = 30;
 
+    //
     private static final int Y_PATTERN_LABEL_POSITION = 550;
 
     // The x-position for the input fields
     private static final int X_INPUT_POSITION = 120;
 
     // The y-position for the search button
-    private static final int Y_BUTTON_POSITION = 600;
+    private static final int Y_BUTTON_POSITION = 610;
     private static final int X_BUTTON_POSITION = 120;
 
     // Dimensions for the button
     private static final int BUTTON_WIDTH = 280;
-
     private static final int BUTTON_HEIGHT = 25;
 
     // The position for the result label
-    private static final int X_RESULT_LABEL_POSITION = 180;
-
-    private static final int Y_RESULT_LABEL_POSITION = 80;
+    private static final int X_RESULT_LABEL_POSITION = 210;
+    private static final int Y_RESULT_LABEL_POSITION = 580;
 
     // Dimensions for the result label
     private static final int RESULT_LABEL_WIDTH = 280;
-
     private static final int RESULT_LABEL_HEIGHT = 25;
-
 
     /**
      * The constructor initializes the GUI and sets its layout.
@@ -91,6 +90,7 @@ public class KMPApplication {
      */
     private void placeComponents(JPanel panel, KMP kmp) {
 
+        //
         panel.setLayout(null);
 
         // Creates a label with instructions for the text input
@@ -131,7 +131,7 @@ public class KMPApplication {
         // Creates a search button
         JButton searchButton = new JButton("Search");
         // Sets the position and size of the search button
-        searchButton.setBounds( X_BUTTON_POSITION, Y_BUTTON_POSITION, BUTTON_WIDTH, BUTTON_HEIGHT);
+        searchButton.setBounds(X_BUTTON_POSITION, Y_BUTTON_POSITION, BUTTON_WIDTH, BUTTON_HEIGHT);
         // Adds the search button to the panel
         panel.add(searchButton);
 
@@ -150,7 +150,15 @@ public class KMPApplication {
             String pattern = patternInput.getText();
             boolean result = kmp.KMPAlgorithm(text, pattern);
             resultLabel.setText("Match found: " + result);
+
+            // If the result is true, set the result label text color to green, else set it to red
+            if(result) {
+                resultLabel.setForeground(Color.GREEN);
+            } else {
+                resultLabel.setForeground(Color.RED);
+            }
         });
+
     }
 
 
