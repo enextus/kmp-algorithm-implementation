@@ -3,6 +3,12 @@ package app;
 import javax.swing.*;
 import java.awt.*;
 
+// Import the necessary classes
+import javax.swing.border.Border;
+import java.awt.Color;
+
+
+
 /**
  * This class is a GUI application for the Knuth-Morris-Pratt (KMP) algorithm.
  * It creates a simple interface allowing users to enter a text and a pattern
@@ -35,7 +41,7 @@ public class KMPApplication {
     private static final int X_INPUT_POSITION = 120;
 
     // The y-position for the search button
-    private static final int Y_BUTTON_POSITION = 610;
+    private static final int Y_BUTTON_POSITION = 620;
     private static final int X_BUTTON_POSITION = 120;
 
     // Dimensions for the button
@@ -43,12 +49,24 @@ public class KMPApplication {
     private static final int BUTTON_HEIGHT = 25;
 
     // The position for the result label
-    private static final int X_RESULT_LABEL_POSITION = 210;
-    private static final int Y_RESULT_LABEL_POSITION = 580;
+    private static final int X_RESULT_LABEL_POSITION = 120;
+    private static final int Y_RESULT_LABEL_POSITION = 585;
 
     // Dimensions for the result label
     private static final int RESULT_LABEL_WIDTH = 280;
     private static final int RESULT_LABEL_HEIGHT = 25;
+
+
+    // Color constant for the border
+    private static final Color DARK_GRAY = Color.DARK_GRAY;
+    // Color constant for the border
+    private static final Color BORDER_COLOR = Color.DARK_GRAY;
+
+    // Color constants
+    private static final Color DARK_GREEN = new Color(0, 100, 0);
+    private static final Color RED = Color.RED;
+    // Create a border with the specified color
+    Border border = BorderFactory.createLineBorder(DARK_GRAY);
 
     /**
      * The constructor initializes the GUI and sets its layout.
@@ -138,6 +156,10 @@ public class KMPApplication {
         JLabel resultLabel = new JLabel("");
         // Sets the position and size of the result label
         resultLabel.setBounds(X_RESULT_LABEL_POSITION, Y_RESULT_LABEL_POSITION, RESULT_LABEL_WIDTH, RESULT_LABEL_HEIGHT);
+        // Create a border with the specified color
+        Border border = BorderFactory.createLineBorder(BORDER_COLOR);
+        // Apply the border to the result label
+        resultLabel.setBorder(border);
         // Adds the result label to the panel
         panel.add(resultLabel);
 
@@ -150,11 +172,11 @@ public class KMPApplication {
             boolean result = kmp.KMPAlgorithm(text, pattern);
             resultLabel.setText("Match found: " + result);
 
-            // If the result is true, set the result label text color to green, else set it to red
-            if (result) {
-                resultLabel.setForeground(Color.GREEN);
+            // If the result is true, set the result label text color to dark green, else set it to red
+            if(result) {
+                resultLabel.setForeground(DARK_GREEN);
             } else {
-                resultLabel.setForeground(Color.RED);
+                resultLabel.setForeground(RED);
             }
         });
 
