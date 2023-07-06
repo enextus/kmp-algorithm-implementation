@@ -1,13 +1,9 @@
 package app;
 
 import javax.swing.*;
-import java.awt.*;
 
-// Import the necessary classes
 import javax.swing.border.Border;
 import java.awt.Color;
-
-
 
 /**
  * This class is a GUI application for the Knuth-Morris-Pratt (KMP) algorithm.
@@ -31,10 +27,10 @@ public class KMPApplication {
     // The x-position for the labels
     private static final int X_LABEL_POSITION = 10;
 
-    // The y-positions for the 'text' and 'pattern' labels
+    // The y-positions for the 'text' labels
     private static final int Y_TEXT_LABEL_POSITION = 30;
 
-    //
+    // The y-positions for the 'pattern' labels
     private static final int Y_PATTERN_LABEL_POSITION = 550;
 
     // The x-position for the input fields
@@ -48,6 +44,10 @@ public class KMPApplication {
     private static final int BUTTON_WIDTH = 280;
     private static final int BUTTON_HEIGHT = 25;
 
+    //  The position for the result text label
+    private static final int X_RESULT_TEXT_LABEL_POSITION = 10;
+    private static final int Y_RESULT_TEXT_LABEL_POSITION = 585;
+
     // The position for the result label
     private static final int X_RESULT_LABEL_POSITION = 120;
     private static final int Y_RESULT_LABEL_POSITION = 585;
@@ -56,17 +56,19 @@ public class KMPApplication {
     private static final int RESULT_LABEL_WIDTH = 280;
     private static final int RESULT_LABEL_HEIGHT = 25;
 
-
-    // Color constant for the border
-    private static final Color DARK_GRAY = Color.DARK_GRAY;
     // Color constant for the border
     private static final Color BORDER_COLOR = Color.DARK_GRAY;
 
     // Color constants
     private static final Color DARK_GREEN = new Color(0, 100, 0);
     private static final Color RED = Color.RED;
-    // Create a border with the specified color
-    Border border = BorderFactory.createLineBorder(DARK_GRAY);
+    public static final String SPACE = " ";
+    public static final String MATCH_FOUND = "Match found:";
+    public static final String APP_KMP_ALGORITHM = "app.KMP Algorithm";
+    public static final String ENTER_TEXT = "Enter text:";
+    public static final String ENTER_PATTERN = "Enter pattern:";
+    public static final String SEARCH = "Search";
+    public static final String EMPTY = "";
 
     /**
      * The constructor initializes the GUI and sets its layout.
@@ -76,7 +78,7 @@ public class KMPApplication {
         KMP kmp = new KMP();
 
         // Create a new JFrame, set its title to 'app.KMP Algorithm'
-        JFrame frame = new JFrame("app.KMP Algorithm");
+        JFrame frame = new JFrame(APP_KMP_ALGORITHM);
 
         // Set the size of the frame using predefined width and height
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -98,7 +100,6 @@ public class KMPApplication {
         frame.setVisible(true);
     }
 
-
     /**
      * This method sets up the components of the GUI.
      *
@@ -106,12 +107,9 @@ public class KMPApplication {
      * @param kmp   The KMP object which implements the KMP algorithm.
      */
     private void placeComponents(JPanel panel, KMP kmp) {
-
-        //
         panel.setLayout(null);
-
         // Creates a label with instructions for the text input
-        JLabel textLabel = new JLabel("Enter text:");
+        JLabel textLabel = new JLabel(ENTER_TEXT);
         // Sets the position and size of the text label
         textLabel.setBounds(X_LABEL_POSITION, Y_TEXT_LABEL_POSITION, BUTTON_WIDTH, BUTTON_HEIGHT);
         // Adds the text label to the panel
@@ -121,18 +119,15 @@ public class KMPApplication {
         JTextArea textInput = new JTextArea(TEXT_AREA_ROWS, TEXT_FIELD_LENGTH);
         // Sets line wrap to true
         textInput.setLineWrap(true);
-
         // Creates a scroll pane for the text area
         JScrollPane scrollPane = new JScrollPane(textInput);
         // Sets the position and size of the scroll pane
         scrollPane.setBounds(X_INPUT_POSITION, Y_TEXT_LABEL_POSITION, RESULT_LABEL_WIDTH, SCROLL_PANE_HEIGHT_FACTOR * BUTTON_HEIGHT); // height is adjusted to accommodate 50 lines
-
         // Adds the scroll pane (containing the text area) to the panel
         panel.add(scrollPane);
 
-
         // Creates a label with instructions for the pattern input
-        JLabel patternLabel = new JLabel("Enter pattern:");
+        JLabel patternLabel = new JLabel(ENTER_PATTERN);
         // Sets the position and size of the pattern label
         patternLabel.setBounds(X_LABEL_POSITION, Y_PATTERN_LABEL_POSITION, BUTTON_WIDTH, BUTTON_HEIGHT);
         // Adds the pattern label to the panel
@@ -146,14 +141,14 @@ public class KMPApplication {
         panel.add(patternInput);
 
         // Creates a search button
-        JButton searchButton = new JButton("Search");
+        JButton searchButton = new JButton(SEARCH);
         // Sets the position and size of the search button
         searchButton.setBounds(X_BUTTON_POSITION, Y_BUTTON_POSITION, BUTTON_WIDTH, BUTTON_HEIGHT);
         // Adds the search button to the panel
         panel.add(searchButton);
 
         // Creates a label to display the result
-        JLabel resultLabel = new JLabel("");
+        JLabel resultLabel = new JLabel(EMPTY);
         // Sets the position and size of the result label
         resultLabel.setBounds(X_RESULT_LABEL_POSITION, Y_RESULT_LABEL_POSITION, RESULT_LABEL_WIDTH, RESULT_LABEL_HEIGHT);
         // Create a border with the specified color
@@ -163,6 +158,11 @@ public class KMPApplication {
         // Adds the result label to the panel
         panel.add(resultLabel);
 
+        // Creates a label to display the result
+        JLabel textLabelResult = new JLabel(MATCH_FOUND);
+        textLabelResult.setBounds(X_RESULT_TEXT_LABEL_POSITION, Y_RESULT_TEXT_LABEL_POSITION, BUTTON_WIDTH, BUTTON_HEIGHT);
+        panel.add(textLabelResult);
+
         // Defines the action to be performed when the search button is clicked
         // It retrieves the text and pattern from the input fields, performs the KMP algorithm,
         // and updates the result label with the result
@@ -170,17 +170,14 @@ public class KMPApplication {
             String text = textInput.getText();
             String pattern = patternInput.getText();
             boolean result = kmp.KMPAlgorithm(text, pattern);
-            resultLabel.setText("Match found: " + result);
+            resultLabel.setText(SPACE + result);
 
-            // If the result is true, set the result label text color to dark green, else set it to red
-            if(result) {
-                resultLabel.setForeground(DARK_GREEN);
-            } else {
-                resultLabel.setForeground(RED);
-            }
+            textLabelResult.setText(MATCH_FOUND);
+
+            if (result) resultLabel.setForeground(DARK_GREEN);
+            else resultLabel.setForeground(RED);
         });
 
     }
-
 
 }
