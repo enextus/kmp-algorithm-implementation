@@ -6,7 +6,7 @@ import javax.swing.border.Border;
 import java.awt.Color;
 
 /**
- * This class is a GUI application for the Knuth-Morris-Pratt (KMP) algorithm.
+ * This class is a GUI application for the Knuth-Morris-Pratt (KMPAlgorithmProvider) algorithm.
  * It creates a simple interface allowing users to enter a text and a pattern
  * to check whether the pattern exists in the text.
  */
@@ -64,7 +64,7 @@ public class KMPApplication {
     private static final Color RED = Color.RED;
     public static final String SPACE = " ";
     public static final String MATCH_FOUND = "Match found:";
-    public static final String APP_KMP_ALGORITHM = "app.KMP Algorithm";
+    public static final String APP_KMP_ALGORITHM = "app.KMPAlgorithmProvider Algorithm";
     public static final String ENTER_TEXT = "Enter text:";
     public static final String ENTER_PATTERN = "Enter pattern:";
     public static final String SEARCH = "Search";
@@ -74,9 +74,9 @@ public class KMPApplication {
      * The constructor initializes the GUI and sets its layout.
      */
     public KMPApplication() {
-        // Create a new instance of the KMP algorithm class
-        KMP kmp = new KMP();
-        // Create a new JFrame, set its title to 'app.KMP Algorithm'
+        // Create a new instance of the KMPAlgorithmProvider algorithm class
+        KMPAlgorithmProvider kmpAlgorithmProvider = new KMPAlgorithmProvider();
+        // Create a new JFrame, set its title to 'app.KMPAlgorithmProvider Algorithm'
         JFrame frame = new JFrame(APP_KMP_ALGORITHM);
         // Set the size of the frame using predefined width and height
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -87,8 +87,8 @@ public class KMPApplication {
         // Add the panel to the frame
         frame.add(panel);
         // Call the placeComponents method to add components to the panel
-        // Pass the panel and KMP instance to the method
-        placeComponents(panel, kmp);
+        // Pass the panel and KMPAlgorithmProvider instance to the method
+        placeComponents(panel, kmpAlgorithmProvider);
         // Set the frame to be visible
         frame.setVisible(true);
     }
@@ -97,9 +97,9 @@ public class KMPApplication {
      * This method sets up the components of the GUI.
      *
      * @param panel The panel on which the components are placed.
-     * @param kmp   The KMP object which implements the KMP algorithm.
+     * @param kmpAlgorithmProvider   The KMPAlgorithmProvider object which implements the KMPAlgorithmProvider algorithm.
      */
-    private void placeComponents(JPanel panel, KMP kmp) {
+    private void placeComponents(JPanel panel, KMPAlgorithmProvider kmpAlgorithmProvider) {
         panel.setLayout(null);
         // Creates a label with instructions for the text input
         JLabel textLabel = new JLabel(ENTER_TEXT);
@@ -157,12 +157,12 @@ public class KMPApplication {
         panel.add(textLabelResult);
 
         // Defines the action to be performed when the search button is clicked
-        // It retrieves the text and pattern from the input fields, performs the KMP algorithm,
+        // It retrieves the text and pattern from the input fields, performs the KMPAlgorithmProvider algorithm,
         // and updates the result label with the result
         searchButton.addActionListener(e -> {
             String text = textInput.getText();
             String pattern = patternInput.getText();
-            boolean result = kmp.KMPAlgorithm(text, pattern);
+            boolean result = kmpAlgorithmProvider.KMPAlgorithm(text, pattern);
             resultLabel.setText(SPACE + result);
             textLabelResult.setText(MATCH_FOUND);
             if (result) resultLabel.setForeground(DARK_GREEN);

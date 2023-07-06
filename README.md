@@ -1,1 +1,1 @@
-# kmp-algorithm-implementation
+# kmpAlgorithmProvider-algorithm-implementation
