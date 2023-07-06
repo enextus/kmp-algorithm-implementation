@@ -1,13 +1,13 @@
 package app;
 
 /**
- * This class implements the Knuth-Morris-Pratt (KMPAlgorithmProvider) algorithm for substring search.
- * The KMPAlgorithmProvider algorithm searches for occurrences of a "word" pattern within a main "text" string.
+ * This class implements the Knuth-Morris-Pratt (KMPProvider) algorithm for substring search.
+ * The KMPProvider algorithm searches for occurrences of a "word" pattern within a main "text" string.
  */
-public class KMPAlgorithmProvider {
+public class KMPProvider {
 
     /**
-     * This method computes the prefix array which is used in KMPAlgorithmProvider algorithm.
+     * This method computes the prefix array which is used in KMPProvider algorithm.
      *
      * @param pattern The pattern for which the prefix array is to be computed.
      * @return The prefix array.
@@ -32,7 +32,7 @@ public class KMPAlgorithmProvider {
     }
 
     /**
-     * This method implements the KMPAlgorithmProvider algorithm.
+     * This method implements the KMPProvider algorithm.
      *
      * @param text    The text to search within.
      * @param pattern The pattern to search for.
