@@ -14,51 +14,37 @@ public class KMPApplication {
     // Dimensions of the main application window
     private static final int FRAME_WIDTH = 450;
     private static final int FRAME_HEIGHT = 700;
-
     // The number of rows in the text area
     private static final int TEXT_AREA_ROWS = 20;
-
     // The factor to calculate the height of the scroll pane
     private static final int SCROLL_PANE_HEIGHT_FACTOR = 20;
-
     // The length of the text fields for user input
     private static final int TEXT_FIELD_LENGTH = 50;
-
     // The x-position for the labels
     private static final int X_LABEL_POSITION = 10;
-
     // The y-positions for the 'text' labels
     private static final int Y_TEXT_LABEL_POSITION = 30;
-
     // The y-positions for the 'pattern' labels
     private static final int Y_PATTERN_LABEL_POSITION = 550;
-
     // The x-position for the input fields
     private static final int X_INPUT_POSITION = 120;
-
     // The y-position for the search button
     private static final int Y_BUTTON_POSITION = 620;
     private static final int X_BUTTON_POSITION = 120;
-
     // Dimensions for the button
     private static final int BUTTON_WIDTH = 280;
     private static final int BUTTON_HEIGHT = 25;
-
     // The position for the result text label
     private static final int X_RESULT_TEXT_LABEL_POSITION = 10;
     private static final int Y_RESULT_TEXT_LABEL_POSITION = 585;
-
     // The position for the result label
     private static final int X_RESULT_LABEL_POSITION = 120;
     private static final int Y_RESULT_LABEL_POSITION = 585;
-
     // Dimensions for the result label
     private static final int RESULT_LABEL_WIDTH = 280;
     private static final int RESULT_LABEL_HEIGHT = 25;
-
     // Color constant for the border
     private static final Color BORDER_COLOR = Color.DARK_GRAY;
-
     // Color constants
     private static final Color DARK_GREEN = new Color(0, 100, 0);
     private static final Color RED = Color.RED;
