@@ -1,5 +1,5 @@
 // Import the KMPProvider class from app package
-import app.KMPProvider;
+import provider.KMPProvider;
 
 // Import classes for unit testing
 import org.junit.jupiter.api.Test;

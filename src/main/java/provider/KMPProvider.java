@@ -1,4 +1,4 @@
-package app;
+package provider;
 
 /**
  * This class implements the Knuth-Morris-Pratt (KMPProvider) algorithm for substring search.
