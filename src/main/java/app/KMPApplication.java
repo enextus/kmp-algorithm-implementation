@@ -44,7 +44,7 @@ public class KMPApplication {
     private static final int BUTTON_WIDTH = 280;
     private static final int BUTTON_HEIGHT = 25;
 
-    //  The position for the result text label
+    // The position for the result text label
     private static final int X_RESULT_TEXT_LABEL_POSITION = 10;
     private static final int Y_RESULT_TEXT_LABEL_POSITION = 585;
 
@@ -76,26 +76,19 @@ public class KMPApplication {
     public KMPApplication() {
         // Create a new instance of the KMP algorithm class
         KMP kmp = new KMP();
-
         // Create a new JFrame, set its title to 'app.KMP Algorithm'
         JFrame frame = new JFrame(APP_KMP_ALGORITHM);
-
         // Set the size of the frame using predefined width and height
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-
         // Set the default close operation. In this case, the application will terminate when the JFrame is closed
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         // Create a new JPanel to hold the components
         JPanel panel = new JPanel();
-
         // Add the panel to the frame
         frame.add(panel);
-
         // Call the placeComponents method to add components to the panel
         // Pass the panel and KMP instance to the method
         placeComponents(panel, kmp);
-
         // Set the frame to be visible
         frame.setVisible(true);
     }
@@ -171,13 +164,10 @@ public class KMPApplication {
             String pattern = patternInput.getText();
             boolean result = kmp.KMPAlgorithm(text, pattern);
             resultLabel.setText(SPACE + result);
-
             textLabelResult.setText(MATCH_FOUND);
-
             if (result) resultLabel.setForeground(DARK_GREEN);
             else resultLabel.setForeground(RED);
         });
-
     }
 
 }
