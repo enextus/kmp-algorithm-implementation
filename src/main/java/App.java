@@ -14,4 +14,5 @@ public class App {
         // which is where the GUI is created and shown
         SwingUtilities.invokeLater(KMPApplication::new);
     }
+
 }
